@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Weekly Campaign Roundups – Tool Guide</title>
+
+<style>
+  body{font-family: Inter, system-ui, sans-serif; margin:0; background:#0d1117; color:#e8f2ee;}
+  header{background:#0e2b24; color:#fff; padding:2rem; text-align:center;}
+  h1{margin:0; font-size:2rem; font-weight:700;}
+  p.subtitle{opacity:0.8; margin-top:.4rem;}
+
+  nav{display:flex; gap:1rem; justify-content:center; padding:1rem; background:#11171c; border-bottom:1px solid #1b2925; position:sticky; top:0; z-index:10;}
+  nav a{cursor:pointer; padding:.5rem 1rem; border-radius:6px; background:#1a2f2a; text-decoration:none; color:#81d4b5; font-size:.9rem; transition:.2s;}
+  nav a:hover{background:#244239;}
+
+  section{max-width:900px; margin:2rem auto; padding:1.5rem; background:#11171c; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,.25);} 
+  h2{margin-top:0; font-size:1.35rem; color:#6ad7ad;}
+  ul, ol{margin-left:1.2rem; line-height:1.6;}
+
+  pre{background:#0e161a; padding:.7rem 1rem; border-radius:6px; border:1px solid #1e3a33; font-size:.9rem;}
+  table{border-collapse:collapse;margin-top:1rem;background:#0d1417;}
+  th,td{border:1px solid #1c2d28;padding:.5rem .9rem;font-size:.9rem;}
+  th{background:#13221d;}
+
+  .fade{animation:fadeIn .35s ease-in;} 
+  @keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
+
+  /* STEP LABEL */
+  .step-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6ad7ad;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0.55rem;
+    opacity: .9;
+  }
+
+  /* WORKFLOW ROW */
+  .flow-row {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:2.8rem;
+    margin:2.5rem 0;
+    flex-wrap:wrap;
+  }
+
+  .flow-step {
+    background:#10181b;
+    padding:1.7rem 2.1rem;
+    border-radius:14px;
+    border:1px solid #1d2d28;
+    text-align:center;
+    width:230px;
+    box-shadow:0 4px 14px rgba(0,0,0,.35);
+    transition:transform .25s ease, border-color .3s ease, box-shadow .3s ease;
+  }
+
+  .flow-step:hover {
+    transform:translateY(-6px);
+    border-color:#6ad7ad;
+    box-shadow:0 0 22px rgba(106,215,173,.35);
+  }
+
+  .flow-step .icon {
+    font-size:2.2rem;
+    margin-bottom:.6rem;
+  }
+
+  .flow-step h3 {
+    margin:0;
+    font-size:1.15rem;
+    color:#6ad7ad;
+    font-weight:600;
+  }
+
+  .flow-step .desc {
+    font-size:.9rem;
+    margin-top:.6rem;
+    line-height:1.45;
+    opacity:.9;
+  }
+
+  .arrow {
+    font-size:2rem;
+    opacity:.55;
+    animation:pulseArrow 1.8s infinite ease-in-out;
+  }
+
+  @keyframes pulseArrow {
+    0% { opacity:.4; transform:translateX(0); }
+    50% { opacity:1; transform:translateX(4px); }
+    100% { opacity:.4; transform:translateX(0); }
+  }
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🧩 Weekly Campaign Roundups</h1>
+  <p class="subtitle">End-to-end workflow guide for Monday → Sheets → Slack reporting</p>
+</header>
+
+<nav>
+  <a onclick="show('naming')">1) Naming Weekly Groups</a>
+  <a onclick="show('sync')">2) Monday Sync</a>
+  <a onclick="show('slack')">3) Slack Highlights</a>
+  <a onclick="show('workflow')">4) Workflow Overview</a>
+</nav>
+
+<section id="naming" class="fade">
+<h2>1) Naming Weekly Groups in Monday</h2>
+<p>When creating weekly campaign groups, always use the format:</p>
+<pre><b>DD/MM/YY</b></pre>
+<p>Example:</p>
+<pre>25/04/25</pre>
+
+<p>This ensures the week group syncs correctly to Google Sheets and appears in the Slack generator.</p>
+
+<table>
+<tr><th>✅ Correct</th><th>❌ Incorrect</th></tr>
+<tr><td>25/04/25</td><td>25.04.25</td></tr>
+<tr><td>02/05/25</td><td>Wk 04 Apr</td></tr>
+<tr><td>17/09/25</td><td>17/9/2025</td></tr>
+</table>
+</section>
+
+<section id="sync" class="fade" style="display:none;">
+<h2>2) Monday Sync → Tracker</h2>
+<p>After naming or adding new weekly groups in Monday, return to the tool and click:</p>
+<pre>🔄 Run Monday Sync</pre>
+
+<ul>
+<li>Updates the Week → Group ID mapping</li>
+<li>Ensures dropdown lists show the latest weeks</li>
+<li>Prevents missing or outdated Slack summaries</li>
+</ul>
+
+<p><b>You should always run this before sending the Slack update — it only takes a few seconds.</b></p>
+</section>
+
+<section id="slack" class="fade" style="display:none;">
+<h2>3) Monday Highlights → Slack</h2>
+
+<p>To send your weekly update:</p>
+<ol>
+<li>Select Month & Week(s)</li>
+<li>Select Brand (or All Brands)</li>
+<li>Choose Slack Recipient</li>
+<li>Click <b>Generate & Send</b> 🚀</li>
+</ol>
+
+<p>The system formats the message automatically with brand emojis, statuses, and categories.</p>
+</section>
+
+<section id="workflow" class="fade" style="display:none;">
+<h2>4) Workflow Overview</h2>
+
+<div class="flow-row">
+
+  <div class="flow-step">
+    <div class="step-label">STEP 1</div>
+    <div class="icon">📁</div>
+    <h3>Monday Boards</h3>
+    <p class="desc">Campaigns grouped by<br><b>DD/MM/YY</b></p>
+  </div>
+
+  <div class="arrow">➜</div>
+
+  <div class="flow-step">
+    <div class="step-label">STEP 2</div>
+    <div class="icon">
+      <svg width="36" height="36" viewBox="0 0 256 256">
+      <path fill="#f04548" d="M46 180a28 28 0 1 1 28-28a28 28 0 0 1-28 28"/>
+      <path fill="#fedf11" d="M128 180a28 28 0 1 1 28-28a28 28 0 0 1-28 28"/>
+      <path fill="#22c55e" d="M210 180a28 28 0 1 1 28-28a28 28 0 0 1-28 28"/>
+      </svg>
+    </div>
+    <h3>Google Sheet Tracker</h3>
+    <p class="desc">Week → Group ID Map<br>auto-updated</p>
+  </div>
+
+  <div class="arrow">➜</div>
+
+  <div class="flow-step">
+    <div class="step-label">STEP 3</div>
+    <div class="icon">💬</div>
+    <h3>Slack Highlights</h3>
+    <p class="desc">Weekly roundups<br>sent automatically</p>
+  </div>
+
+</div>
+
+<p style="text-align:center; margin-top:1.5rem; opacity:.85;">
+This is the full end-to-end reporting pipeline.
+</p>
+</section>
+
+<script>
+function show(id){
+  document.querySelectorAll('section').forEach(s => s.style.display='none');
+  const el = document.getElementById(id);
+  el.style.display='block';
+  el.classList.add('fade');
+}
+</script>
+</body>
+</html>
